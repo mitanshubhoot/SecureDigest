@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureDaily - Enterprise Security Intelligence</title>
+    <meta name="description"
+        content="Enterprise security intelligence delivered daily. Curated security best practices and risk management insights for modern security teams.">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand-logo">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Shield outline -->
+                    <path d="M24 4L8 10V22C8 32 14 40 24 44C34 40 40 32 40 22V10L24 4Z" stroke="url(#logo-gradient)"
+                        stroke-width="2.5" fill="none" />
+                    <!-- Inner protection rings -->
+                    <circle cx="24" cy="24" r="12" stroke="url(#logo-gradient)" stroke-width="2" fill="none"
+                        opacity="0.6" />
+                    <circle cx="24" cy="24" r="7" stroke="url(#logo-gradient)" stroke-width="1.5" fill="none"
+                        opacity="0.4" />
+                    <circle cx="24" cy="24" r="3" fill="url(#logo-gradient)" opacity="0.8" />
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0F4C81;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h1>SecureDaily</h1>
+            <p class="subtitle">Enterprise Security Intelligence, Delivered Daily</p>
+        </header>
+
+        {% if has_digests %}
+        {% if latest_digest %}
+        <section class="latest-digest">
+            <h2>Today's Security Briefing</h2>
+            <div class="digest-card">
+                <div class="digest-header">
+                    <div class="digest-meta">
+                        <span class="digest-date">{{ latest_digest.date }}</span>
+                        <span class="digest-badge">{{ latest_digest.digest_items|length }} insights</span>
+                    </div>
+                    <h3>{{ latest_digest.headline }}</h3>
+                </div>
+                <div class="digest-items">
+                    {% for item in latest_digest.digest_items %}
+                    <div class="digest-item {{ item.type }}">
+                        <div class="item-header">
+                            <span class="item-type">{{ item.type }}</span>
+                            <h4>{{ item.title }}</h4>
+                        </div>
+                        <div class="item-content">
+                            <p class="item-why"><strong>Why It Matters:</strong> {{ item.why }}</p>
+                            <p class="item-fix"><strong>Recommended Action:</strong> {{ item.fix }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        <section class="past-digests">
+            <h2>Previous Briefings</h2>
+            <div class="digest-list">
+                {% for digest in past_digests %}
+                <a href="/digest/{{ digest.date }}" class="digest-link">
+                    <div class="digest-list-item">
+                        <span class="list-date">{{ digest.date }}</span>
+                        <span class="list-headline">{{ digest.headline }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+        {% else %}
+        <section class="empty-state">
+            <svg class="empty-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="38" stroke="url(#empty-gradient)" stroke-width="2" stroke-dasharray="4 4"
+                    opacity="0.5" />
+                <path d="M40 20L28 28V40C28 48 32 54 40 58C48 54 52 48 52 40V28L40 20Z" stroke="url(#empty-gradient)"
+                    stroke-width="2" fill="none" />
+                <circle cx="40" cy="40" r="8" stroke="url(#empty-gradient)" stroke-width="1.5" fill="none"
+                    opacity="0.6" />
+                <defs>
+                    <linearGradient id="empty-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0F4C81;stop-opacity:0.6" />
+                        <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:0.6" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <h2>No Security Briefings Yet</h2>
+            <p>Daily security intelligence briefings will appear here once automation is configured.</p>
+            <p class="empty-hint">The automated workflow generates curated security insights every day.</p>
+        </section>
+        {% endif %}
+
+        <footer>
+            <p>SecureDaily &copy; 2025 • Enterprise Security Intelligence • <a href="/api/digests">API Access</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
