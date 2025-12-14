@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Feed - SecureDaily</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <h1><a href="/" style="color: inherit; text-decoration: none;">SecureDaily</a></h1>
+            </div>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/threat-feed" class="active">Threat Feed</a>
+                <a href="/security-calculator">Security Calculator</a>
+                <a href="/tools">Tools Directory</a>
+            </nav>
+        </header>
+
+        <!-- Page Title -->
+        <div class="page-header">
+            <h2>🔴 Live Threat Intelligence Feed</h2>
+            <p>Real-time CVE vulnerabilities and security threats from NVD</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total CVEs (7 days)</div>
+                <div class="stat-value">{{ total_cves }}</div>
+            </div>
+            <div class="stat-card critical">
+                <div class="stat-label">Critical</div>
+                <div class="stat-value">{{ critical_count }}</div>
+            </div>
+            <div class="stat-card high">
+                <div class="stat-label">High</div>
+                <div class="stat-value">{{ high_count }}</div>
+            </div>
+            <div class="stat-card medium">
+                <div class="stat-label">Medium</div>
+                <div class="stat-value">{{ medium_count }}</div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Threat Distribution by Category</h3>
+                <canvas id="threatRadarChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Severity Distribution</h3>
+                <canvas id="severityChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Severity Filter -->
+        <div class="filter-section">
+            <button class="filter-btn active" data-severity="all">All</button>
+            <button class="filter-btn critical" data-severity="CRITICAL">Critical</button>
+            <button class="filter-btn high" data-severity="HIGH">High</button>
+            <button class="filter-btn medium" data-severity="MEDIUM">Medium</button>
+            <button class="filter-btn low" data-severity="LOW">Low</button>
+        </div>
+
+        <!-- CVE Feed Table -->
+        <div class="threat-feed-container">
+            <table class="threat-table">
+                <thead>
+                    <tr>
+                        <th>CVE ID</th>
+                        <th>Description</th>
+                        <th>CVSS Score</th>
+                        <th>Severity</th>
+                        <th>Published</th>
+                    </tr>
+                </thead>
+                <tbody id="cveTableBody">
+                    {% for cve in cves %}
+                    <tr data-severity="{{ cve.severity }}">
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/{{ cve.id }}" target="_blank" class="cve-link">
+                                {{ cve.id }}
+                            </a>
+                        </td>
+                        <td class="description">{{ cve.description }}</td>
+                        <td>
+                            <span class="cvss-score">{{ cve.cvss_score }}</span>
+                        </td>
+                        <td>
+                            <span class="severity-badge {{ cve.severity.lower() }}">
+                                {{ cve.severity }}
+                            </span>
+                        </td>
+                        <td class="date">{{ cve.published[:10] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 SecureDaily - Enterprise Security Intelligence</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/charts.js"></script>
+    <script>
+        // Initialize charts with data from backend
+        const categoryData = {{ category_distribution | tojson }};
+        const severityData = {{ severity_distribution | tojson }};
+
+        // Create threat distribution radar chart
+        createThreatDistributionChart('threatRadarChart', categoryData);
+
+        // Create severity doughnut chart
+        createSeverityChart('severityChart', severityData);
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const tableRows = document.querySelectorAll('#cveTableBody tr');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const severity = button.dataset.severity;
+
+                // Filter table rows
+                tableRows.forEach(row => {
+                    if (severity === 'all' || row.dataset.severity === severity) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

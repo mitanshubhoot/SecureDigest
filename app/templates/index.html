@@ -6,40 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecureDaily - Enterprise Security Intelligence</title>
     <meta name="description"
-        content="Enterprise security intelligence delivered daily. Curated security best practices and risk management insights for modern security teams.">
+        content="Enterprise security intelligence delivered daily. Real-time threat feeds, security assessment tools, and curated risk management insights.">
     <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <header>
-            <div class="brand-logo">
-                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Shield outline -->
-                    <path d="M24 4L8 10V22C8 32 14 40 24 44C34 40 40 32 40 22V10L24 4Z" stroke="url(#logo-gradient)"
-                        stroke-width="2.5" fill="none" />
-                    <!-- Inner protection rings -->
-                    <circle cx="24" cy="24" r="12" stroke="url(#logo-gradient)" stroke-width="2" fill="none"
-                        opacity="0.6" />
-                    <circle cx="24" cy="24" r="7" stroke="url(#logo-gradient)" stroke-width="1.5" fill="none"
-                        opacity="0.4" />
-                    <circle cx="24" cy="24" r="3" fill="url(#logo-gradient)" opacity="0.8" />
-                    <defs>
-                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#0F4C81;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
+        <!-- Enterprise Header -->
+        <header class="header">
+            <div class="logo-section">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
+                <h1><a href="/" style="color: inherit; text-decoration: none;">SecureDaily</a></h1>
             </div>
-            <h1>SecureDaily</h1>
-            <p class="subtitle">Enterprise Security Intelligence, Delivered Daily</p>
+            <nav class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/threat-feed">Threat Feed</a>
+                <a href="/security-calculator">Security Calculator</a>
+                <a href="/tools">Tools Directory</a>
+            </nav>
         </header>
+
+        <!-- Hero Section -->
+        <div class="page-header" style="margin-bottom: 4rem;">
+            <h2>Enterprise Security Intelligence</h2>
+            <p>Real-time threat monitoring, security assessment, and daily risk briefings.</p>
+        </div>
+
+        <!-- Dashboard Widgets -->
+        <div class="stats-grid">
+            <a href="/threat-feed" class="stat-card" style="text-decoration: none; display: block;">
+                <div class="stat-label">LIVE THREATS (30 DAYS)</div>
+                <div class="stat-value" style="color: var(--accent-orange);">{{ total_recent_cves if total_recent_cves
+                    else "N/A" }}</div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    Critical Vulnerabilities Detected
+                </div>
+            </a>
+
+            <a href="/security-calculator" class="stat-card" style="text-decoration: none; display: block;">
+                <div class="stat-label">SECURITY POSTURE</div>
+                <div class="stat-value" style="color: var(--sky-blue);">Assess</div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    Calculate Your Organization's Score
+                </div>
+            </a>
+
+            <div class="stat-card">
+                <div class="stat-label">LATEST BRIEFING</div>
+                <div class="stat-value">{{ latest_digest.date if latest_digest else "Pending" }}</div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    {{ latest_digest.headline if latest_digest else "System warming up..." }}
+                </div>
+            </div>
+        </div>
 
         {% if has_digests %}
         {% if latest_digest %}
+        <!-- Recent Briefing -->
         <section class="latest-digest">
-            <h2>Today's Security Briefing</h2>
             <div class="digest-card">
                 <div class="digest-header">
                     <div class="digest-meta">
@@ -66,8 +96,9 @@
         </section>
         {% endif %}
 
+        <!-- Previous Digests -->
         <section class="past-digests">
-            <h2>Previous Briefings</h2>
+            <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Archive</h2>
             <div class="digest-list">
                 {% for digest in past_digests %}
                 <a href="/digest/{{ digest.date }}" class="digest-link">
@@ -80,6 +111,7 @@
             </div>
         </section>
         {% else %}
+        <!-- Empty State -->
         <section class="empty-state">
             <svg class="empty-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="40" cy="40" r="38" stroke="url(#empty-gradient)" stroke-width="2" stroke-dasharray="4 4"
@@ -95,14 +127,13 @@
                     </linearGradient>
                 </defs>
             </svg>
-            <h2>No Security Briefings Yet</h2>
-            <p>Daily security intelligence briefings will appear here once automation is configured.</p>
-            <p class="empty-hint">The automated workflow generates curated security insights every day.</p>
+            <h2>Analysis Engine Initializing</h2>
+            <p>Daily security intelligence briefings will appear here shortly.</p>
         </section>
         {% endif %}
 
-        <footer>
-            <p>SecureDaily &copy; 2025 • Enterprise Security Intelligence • <a href="/api/digests">API Access</a></p>
+        <footer class="footer">
+            <p>&copy; 2024 SecureDaily - Enterprise Security Intelligence • <a href="/api/digests">API Access</a></p>
         </footer>
     </div>
 </body>
