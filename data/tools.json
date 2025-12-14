@@ -1,0 +1,241 @@
+[
+    {
+        "id": "burp-suite",
+        "name": "Burp Suite",
+        "category": "Web Security",
+        "description": "The leading software for web security testing. Burp Suite is an integrated platform for performing security testing of web applications.",
+        "license": "Commercial/Free",
+        "website": "https://portswigger.net/burp",
+        "features": [
+            "Proxy",
+            "Scanner",
+            "Intruder",
+            "Repeater",
+            "Sequencer"
+        ],
+        "rating": 4.8,
+        "tags": [
+            "pentesting",
+            "web",
+            "scanner"
+        ]
+    },
+    {
+        "id": "owasp-zap",
+        "name": "OWASP ZAP",
+        "category": "Web Security",
+        "description": "The OWASP Zed Attack Proxy (ZAP) is one of the world's most popular free security tools and relies on a large and active international community of volunteers.",
+        "license": "Open Source",
+        "website": "https://www.zaproxy.org/",
+        "features": [
+            "Automated Scanner",
+            "Proxy",
+            "Fuzzer",
+            "WebSocket Support"
+        ],
+        "rating": 4.6,
+        "tags": [
+            "pentesting",
+            "web",
+            "open-source"
+        ]
+    },
+    {
+        "id": "wireshark",
+        "name": "Wireshark",
+        "category": "Network Security",
+        "description": "Wireshark is the world's foremost and widely-used network protocol analyzer. It lets you see what's happening on your network at a microscopic level.",
+        "license": "Open Source",
+        "website": "https://www.wireshark.org/",
+        "features": [
+            "Deep Inspection",
+            "Live Capture",
+            "Offline Analysis",
+            "Multi-Platform"
+        ],
+        "rating": 4.9,
+        "tags": [
+            "network",
+            "analysis",
+            "packet-capture"
+        ]
+    },
+    {
+        "id": "nmap",
+        "name": "Nmap",
+        "category": "Network Security",
+        "description": "Nmap (Network Mapper) is a free and open source utility for network discovery and security auditing.",
+        "license": "Open Source",
+        "website": "https://nmap.org/",
+        "features": [
+            "Host Discovery",
+            "Port Scanning",
+            "OS Detection",
+            "Scriptable"
+        ],
+        "rating": 4.9,
+        "tags": [
+            "network",
+            "scanning",
+            "discovery"
+        ]
+    },
+    {
+        "id": "metasploit",
+        "name": "Metasploit Framework",
+        "category": "Penetration Testing",
+        "description": "The world's most used penetration testing framework. Knowledge is power, especially when it's shared.",
+        "license": "Open Source/Commercial",
+        "website": "https://www.metasploit.com/",
+        "features": [
+            "Exploit Development",
+            "Payload Generation",
+            "Scanning",
+            "Evasion"
+        ],
+        "rating": 4.7,
+        "tags": [
+            "pentesting",
+            "exploit",
+            "framework"
+        ]
+    },
+    {
+        "id": "snort",
+        "name": "Snort",
+        "category": "IDS/IPS",
+        "description": "Snort is the foremost Open Source Intrusion Prevention System (IPS) in the world.",
+        "license": "Open Source",
+        "website": "https://www.snort.org/",
+        "features": [
+            "Real-time Traffic Analysis",
+            "Packet Logging",
+            "Protocol Analysis",
+            "Content Matching"
+        ],
+        "rating": 4.5,
+        "tags": [
+            "ids",
+            "ips",
+            "network"
+        ]
+    },
+    {
+        "id": "nessus",
+        "name": "Nessus",
+        "category": "Vulnerability Scanning",
+        "description": "Nessus is the #1 vulnerability assessment solution for security practitioners.",
+        "license": "Commercial",
+        "website": "https://www.tenable.com/products/nessus",
+        "features": [
+            "Vulnerability Scanning",
+            "Configuration Auditing",
+            "Malware Detection",
+            "Reporting"
+        ],
+        "rating": 4.7,
+        "tags": [
+            "scanning",
+            "vulnerability",
+            "audit"
+        ]
+    },
+    {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "category": "Reverse Engineering",
+        "description": "A software reverse engineering (SRE) suite of tools developed by NSA's Research Directorate in support of the Cybersecurity mission.",
+        "license": "Open Source",
+        "website": "https://ghidra-sre.org/",
+        "features": [
+            "Disassembler",
+            "Decompiler",
+            "Scripting",
+            "Multi-Architecture"
+        ],
+        "rating": 4.8,
+        "tags": [
+            "reverse-engineering",
+            "malware-analysis"
+        ]
+    },
+    {
+        "id": "hashcat",
+        "name": "Hashcat",
+        "category": "Password Cracking",
+        "description": "Hashcat is the world's fastest and most advanced password recovery utility.",
+        "license": "Open Source",
+        "website": "https://hashcat.net/hashcat/",
+        "features": [
+            "Multi-Hash Support",
+            "GPU Acceleration",
+            "Distributed Cracking",
+            "Performance Tuning"
+        ],
+        "rating": 4.8,
+        "tags": [
+            "password",
+            "cracking",
+            "gpu"
+        ]
+    },
+    {
+        "id": "osquery",
+        "name": "osquery",
+        "category": "Endpoint Security",
+        "description": "osquery uses basic SQL commands to leverage a relational data-model to describe a device.",
+        "license": "Open Source",
+        "website": "https://osquery.io/",
+        "features": [
+            "SQL-based Analysis",
+            "Cross-Platform",
+            "Performance Focused",
+            "Extensible"
+        ],
+        "rating": 4.6,
+        "tags": [
+            "endpoint",
+            "monitoring",
+            "sql"
+        ]
+    },
+    {
+        "id": "kali-linux",
+        "name": "Kali Linux",
+        "category": "Security OS",
+        "description": "Kali Linux is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments.",
+        "license": "Open Source",
+        "website": "https://www.kali.org/",
+        "features": [
+            "Pre-installed Tools",
+            "Customizable",
+            "Wide Support",
+            "Documentation"
+        ],
+        "rating": 4.9,
+        "tags": [
+            "os",
+            "pentesting",
+            "toolkit"
+        ]
+    },
+    {
+        "id": "bloodhound",
+        "name": "BloodHound",
+        "category": "Active Directory",
+        "description": "BloodHound uses graph theory to reveal the hidden and often unintended relationships within an Active Directory environment.",
+        "license": "Open Source",
+        "website": "https://github.com/BloodHoundAD/BloodHound",
+        "features": [
+            "Graph Visualization",
+            "Attack Path Analysis",
+            "Privilege Mapping"
+        ],
+        "rating": 4.7,
+        "tags": [
+            "active-directory",
+            "graph",
+            "analysis"
+        ]
+    }
+]

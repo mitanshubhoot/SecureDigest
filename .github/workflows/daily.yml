@@ -41,6 +41,16 @@ jobs:
           git commit -m "Add daily digest for $(date +%Y-%m-%d)"
           git push
       
+      - name: Trigger Render Deployment
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          if [ -n "${{ secrets.RENDER_DEPLOY_HOOK }}" ]; then
+            curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
+            echo "Render deployment triggered successfully"
+          else
+            echo "Warning: RENDER_DEPLOY_HOOK secret not set. Skipping deployment trigger."
+          fi
+      
       - name: No changes
         if: steps.git-check.outputs.changed != 'true'
         run: echo "No new digest generated (already exists for today)"

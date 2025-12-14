@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Calculator - SecureDaily</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <h1><a href="/" style="color: inherit; text-decoration: none;">SecureDaily</a></h1>
+            </div>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/threat-feed">Threat Feed</a>
+                <a href="/security-calculator" class="active">Security Calculator</a>
+                <a href="/tools">Tools Directory</a>
+            </nav>
+        </header>
+
+        <!-- Page Title -->
+        <div class="page-header">
+            <h2>🛡️ Security Posture Assessment</h2>
+            <p>Evaluate your organization's security maturity and get actionable recommendations</p>
+        </div>
+
+        <div id="assessmentForm" class="assessment-container">
+            <!-- Industry Selection -->
+            <div class="form-section">
+                <h3>Organization Details</h3>
+                <div class="form-group">
+                    <label for="industry">Industry</label>
+                    <select id="industry" class="form-control">
+                        <option value="fintech">FinTech</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="saas">SaaS</option>
+                        <option value="ecommerce">E-Commerce</option>
+                        <option value="general">General/Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="companySize">Company Size</label>
+                    <select id="companySize" class="form-control">
+                        <option value="small">Small (1-50 employees)</option>
+                        <option value="medium">Medium (51-500 employees)</option>
+                        <option value="large">Large (500+ employees)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Assessment Questions -->
+            <div class="form-section">
+                <h3>Security Assessment</h3>
+                <p class="section-description">Answer the following questions honestly to get an accurate assessment</p>
+
+                <div id="questionsContainer"></div>
+            </div>
+
+            <button id="calculateBtn" class="btn-primary">Calculate Security Score</button>
+        </div>
+
+        <!-- Results Section (Hidden initially) -->
+        <div id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2>Your Security Score</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="overallScore" class="score-value">0</span>
+                        <span class="score-label">Overall Score</span>
+                        <span id="scoreGrade" class="score-grade">F</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Radar Chart -->
+            <div class="chart-card">
+                <h3>Security Posture Breakdown</h3>
+                <canvas id="securityRadarChart"></canvas>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="recommendations-section">
+                <h3>Recommendations</h3>
+                <div id="recommendationsList"></div>
+            </div>
+
+            <button onclick="location.reload()" class="btn-secondary">Take Assessment Again</button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 SecureDaily - Enterprise Security Intelligence</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/charts.js"></script>
+    <script>
+        // Load questions from backend
+        const questions = {{ questions | tojson | safe }};
+
+        // Render questions
+        const questionsContainer = document.getElementById('questionsContainer');
+
+        Object.entries(questions).forEach(([category, categoryQuestions]) => {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'question-category';
+
+            const categoryTitle = document.createElement('h4');
+            categoryTitle.textContent = category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            categoryDiv.appendChild(categoryTitle);
+
+            categoryQuestions.forEach(q => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-item';
+
+                const label = document.createElement('label');
+                label.className = 'checkbox-label';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = q.id;
+                checkbox.name = q.id;
+
+                const span = document.createElement('span');
+                span.textContent = q.question;
+
+                label.appendChild(checkbox);
+                label.appendChild(span);
+                questionDiv.appendChild(label);
+
+                categoryDiv.appendChild(questionDiv);
+            });
+
+            questionsContainer.appendChild(categoryDiv);
+        });
+
+        // Calculate score
+        document.getElementById('calculateBtn').addEventListener('click', async () => {
+            const answers = {};
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                answers[cb.id] = cb.checked;
+            });
+
+            const industry = document.getElementById('industry').value;
+            const companySize = document.getElementById('companySize').value;
+
+            try {
+                const response = await fetch('/api/calculate-score', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        answers: answers,
+                        industry: industry,
+                        company_size: companySize
+                    })
+                });
+
+                const result = await response.json();
+
+                // Hide form, show results
+                document.getElementById('assessmentForm').style.display = 'none';
+                document.getElementById('resultsSection').style.display = 'block';
+
+                // Display score
+                document.getElementById('overallScore').textContent = result.overall_score;
+                document.getElementById('scoreGrade').textContent = `Grade: ${result.grade}`;
+
+                // Create radar chart
+                createSecurityRadarChart('securityRadarChart', result.radar_data);
+
+                // Display recommendations
+                const recommendationsList = document.getElementById('recommendationsList');
+                recommendationsList.innerHTML = '';
+
+                result.recommendations.forEach(rec => {
+                    const recDiv = document.createElement('div');
+                    recDiv.className = `recommendation-item ${rec.priority.toLowerCase()}`;
+                    recDiv.innerHTML = `
+                        <div class="rec-header">
+                            <span class="rec-category">${rec.category}</span>
+                            <span class="rec-priority ${rec.priority.toLowerCase()}">${rec.priority}</span>
+                        </div>
+                        <p>${rec.message}</p>
+                        <div class="rec-score">Current Score: ${rec.score}%</div>
+                    `;
+                    recommendationsList.appendChild(recDiv);
+                });
+
+                // Scroll to results
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            } catch (error) {
+                console.error('Error calculating score:', error);
+                alert('Error calculating score. Please try again.');
+            }
+        });
+    </script>
+
+    <style>
+        .assessment-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(15, 76, 129, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .question-category {
+            margin-bottom: 2rem;
+        }
+
+        .question-category h4 {
+            font-size: 1.1rem;
+            color: var(--sky-blue);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .question-item {
+            margin-bottom: 1rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-label:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-label span {
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 2rem auto;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(15, 76, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid rgba(15, 76, 129, 0.3);
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .score-display {
+            margin: 2rem 0;
+        }
+
+        .score-circle {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            box-shadow: 0 8px 32px rgba(15, 76, 129, 0.4);
+        }
+
+        .score-value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .score-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.5rem;
+        }
+
+        .score-grade {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 0.5rem;
+        }
+
+        .recommendations-section {
+            margin: 3rem 0;
+        }
+
+        .recommendations-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .recommendation-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--glass-border);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--text-muted);
+        }
+
+        .recommendation-item.high {
+            border-left-color: var(--color-critical);
+        }
+
+        .recommendation-item.medium {
+            border-left-color: var(--color-high);
+        }
+
+        .recommendation-item.low {
+            border-left-color: var(--color-low);
+        }
+
+        .rec-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .rec-category {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .rec-priority {
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .rec-priority.high {
+            background: var(--color-critical);
+            color: white;
+        }
+
+        .rec-priority.medium {
+            background: var(--color-high);
+            color: white;
+        }
+
+        .rec-priority.low {
+            background: var(--color-low);
+            color: white;
+        }
+
+        .recommendation-item p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .rec-score {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+    </style>
+</body>
+
+</html>
