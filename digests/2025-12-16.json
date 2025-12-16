@@ -1,0 +1,36 @@
+{
+  "date": "2025-12-16",
+  "headline": "Reduce Risk: Today's Security Priorities",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use subresource integrity (SRI)",
+      "why": "SRI prevents compromised CDN resources from executing malicious code",
+      "fix": "Add integrity attribute to script and link tags loading external resources"
+    },
+    {
+      "type": "check",
+      "title": "Verify encryption in transit",
+      "why": "Unencrypted data transmission exposes sensitive information",
+      "fix": "Enforce HTTPS for all endpoints and use TLS for internal services"
+    },
+    {
+      "type": "check",
+      "title": "Scan for exposed .git directories",
+      "why": "Exposed .git folders can leak source code and sensitive configuration",
+      "fix": "Block access in web server config or use .htaccess: 'RedirectMatch 404 /\\.git'"
+    },
+    {
+      "type": "tip",
+      "title": "Use security champions program",
+      "why": "Embedded security advocates improve security culture across teams",
+      "fix": "Designate security champions in each team and provide training"
+    },
+    {
+      "type": "tip",
+      "title": "Use HSTS headers",
+      "why": "HTTP Strict Transport Security forces browsers to only connect via HTTPS",
+      "fix": "Add header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains'"
+    }
+  ]
+}
