@@ -1,0 +1,42 @@
+{
+  "date": "2025-12-19",
+  "headline": "Critical Security Patterns to Implement",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use subresource integrity (SRI)",
+      "why": "SRI prevents compromised CDN resources from executing malicious code",
+      "fix": "Add integrity attribute to script and link tags loading external resources"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure random number generation",
+      "why": "Weak randomness compromises cryptographic operations",
+      "fix": "Use crypto.randomBytes() or secrets module, not Math.random()"
+    },
+    {
+      "type": "check",
+      "title": "Scan for exposed secrets in repos",
+      "why": "Committed secrets can be found by attackers scanning public repositories",
+      "fix": "Use tools like git-secrets or truffleHog to scan commit history"
+    },
+    {
+      "type": "tip",
+      "title": "Enable DNSSEC for your domain",
+      "why": "DNSSEC prevents DNS spoofing attacks by cryptographically signing DNS records",
+      "fix": "Contact your DNS provider to enable DNSSEC and add DS records to your registrar"
+    },
+    {
+      "type": "check",
+      "title": "Disable directory listing",
+      "why": "Directory listing exposes file structure and sensitive files",
+      "fix": "Set 'Options -Indexes' in Apache or 'autoindex off' in nginx"
+    },
+    {
+      "type": "check",
+      "title": "Verify encryption in transit",
+      "why": "Unencrypted data transmission exposes sensitive information",
+      "fix": "Enforce HTTPS for all endpoints and use TLS for internal services"
+    }
+  ]
+}
