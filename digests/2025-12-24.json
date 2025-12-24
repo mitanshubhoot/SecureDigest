@@ -1,0 +1,42 @@
+{
+  "date": "2025-12-24",
+  "headline": "Security Best Practices You Should Know",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Review third-party vendor access",
+      "why": "Excessive vendor permissions increase attack surface and compliance risk",
+      "fix": "Audit vendor access quarterly and apply principle of least privilege"
+    },
+    {
+      "type": "check",
+      "title": "Verify CORS configuration",
+      "why": "Misconfigured CORS can allow unauthorized cross-origin requests",
+      "fix": "Explicitly whitelist allowed origins instead of using '*'"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement rate limiting on APIs",
+      "why": "Rate limits prevent brute force attacks and API abuse",
+      "fix": "Use middleware like express-rate-limit or nginx limit_req module"
+    },
+    {
+      "type": "pattern",
+      "title": "Rotate API keys quarterly",
+      "why": "Regular rotation limits the window of exposure if keys are compromised",
+      "fix": "Set calendar reminders and use secret management tools like HashiCorp Vault"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    }
+  ]
+}
