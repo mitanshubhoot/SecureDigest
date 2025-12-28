@@ -1,0 +1,48 @@
+{
+  "date": "2025-12-28",
+  "headline": "Security Fundamentals for Production Systems",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use subresource integrity (SRI)",
+      "why": "SRI prevents compromised CDN resources from executing malicious code",
+      "fix": "Add integrity attribute to script and link tags loading external resources"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement disaster recovery plan",
+      "why": "Disasters and ransomware require tested recovery procedures",
+      "fix": "Document RTO/RPO, maintain offline backups, and test recovery quarterly"
+    },
+    {
+      "type": "pattern",
+      "title": "Rotate API keys quarterly",
+      "why": "Regular rotation limits the window of exposure if keys are compromised",
+      "fix": "Set calendar reminders and use secret management tools like HashiCorp Vault"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security monitoring",
+      "why": "Real-time monitoring detects attacks and anomalies early",
+      "fix": "Use SIEM tools and set up alerts for suspicious activities"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    },
+    {
+      "type": "check",
+      "title": "Review cloud storage permissions",
+      "why": "Misconfigured S3 buckets and storage accounts lead to data leaks",
+      "fix": "Ensure buckets are private and use IAM policies for access control"
+    },
+    {
+      "type": "check",
+      "title": "Verify CORS configuration",
+      "why": "Misconfigured CORS can allow unauthorized cross-origin requests",
+      "fix": "Explicitly whitelist allowed origins instead of using '*'"
+    }
+  ]
+}
