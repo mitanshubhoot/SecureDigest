@@ -1,0 +1,36 @@
+{
+  "date": "2025-12-29",
+  "headline": "Security Best Practices You Should Know",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use secure random number generation",
+      "why": "Weak randomness compromises cryptographic operations",
+      "fix": "Use crypto.randomBytes() or secrets module, not Math.random()"
+    },
+    {
+      "type": "tip",
+      "title": "Use HSTS headers",
+      "why": "HTTP Strict Transport Security forces browsers to only connect via HTTPS",
+      "fix": "Add header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains'"
+    },
+    {
+      "type": "check",
+      "title": "Scan for exposed secrets in repos",
+      "why": "Committed secrets can be found by attackers scanning public repositories",
+      "fix": "Use tools like git-secrets or truffleHog to scan commit history"
+    },
+    {
+      "type": "check",
+      "title": "Verify container image security",
+      "why": "Vulnerable base images introduce security risks to containerized apps",
+      "fix": "Scan images with Trivy or Clair and use minimal base images"
+    },
+    {
+      "type": "check",
+      "title": "Disable directory listing",
+      "why": "Directory listing exposes file structure and sensitive files",
+      "fix": "Set 'Options -Indexes' in Apache or 'autoindex off' in nginx"
+    }
+  ]
+}
