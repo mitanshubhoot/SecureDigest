@@ -1,0 +1,36 @@
+{
+  "date": "2026-01-02",
+  "headline": "Critical Security Patterns to Implement",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Review third-party vendor access",
+      "why": "Excessive vendor permissions increase attack surface and compliance risk",
+      "fix": "Audit vendor access quarterly and apply principle of least privilege"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement data classification",
+      "why": "Classification ensures appropriate security controls for sensitive data",
+      "fix": "Label data as public, internal, confidential, or restricted"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement disaster recovery plan",
+      "why": "Disasters and ransomware require tested recovery procedures",
+      "fix": "Document RTO/RPO, maintain offline backups, and test recovery quarterly"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement secure software development lifecycle",
+      "why": "Security integrated throughout SDLC is more effective than bolt-on security",
+      "fix": "Include threat modeling, security reviews, and testing in each phase"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    }
+  ]
+}
