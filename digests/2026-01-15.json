@@ -1,0 +1,42 @@
+{
+  "date": "2026-01-15",
+  "headline": "Essential Security Checks for Modern Apps",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement password complexity requirements",
+      "why": "Weak passwords are easily cracked by brute force attacks",
+      "fix": "Require minimum 12 characters with mix of uppercase, lowercase, numbers, symbols"
+    },
+    {
+      "type": "check",
+      "title": "Review user access permissions",
+      "why": "Stale permissions from former employees pose security risk",
+      "fix": "Conduct quarterly access reviews and remove unnecessary permissions"
+    },
+    {
+      "type": "tip",
+      "title": "Use TLS 1.3 exclusively",
+      "why": "Older TLS versions have known vulnerabilities and weaker cipher suites",
+      "fix": "Update server config to disable TLS 1.0, 1.1, 1.2 and enable only TLS 1.3"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement input validation",
+      "why": "Unvalidated input leads to injection attacks and data corruption",
+      "fix": "Validate all user input on both client and server side"
+    },
+    {
+      "type": "check",
+      "title": "Verify API versioning strategy",
+      "why": "Deprecated API versions may have unpatched vulnerabilities",
+      "fix": "Maintain clear deprecation timeline and force upgrades for old versions"
+    },
+    {
+      "type": "check",
+      "title": "Review third-party vendor access",
+      "why": "Excessive vendor permissions increase attack surface and compliance risk",
+      "fix": "Audit vendor access quarterly and apply principle of least privilege"
+    }
+  ]
+}
