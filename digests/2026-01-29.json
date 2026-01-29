@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-29",
+  "headline": "Critical Security Patterns to Implement",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Verify encryption in transit",
+      "why": "Unencrypted data transmission exposes sensitive information",
+      "fix": "Enforce HTTPS for all endpoints and use TLS for internal services"
+    },
+    {
+      "type": "tip",
+      "title": "Use security headers scanner",
+      "why": "Missing security headers leave applications vulnerable to common attacks",
+      "fix": "Use securityheaders.com to scan and implement recommended headers"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement rate limiting on APIs",
+      "why": "Rate limits prevent brute force attacks and API abuse",
+      "fix": "Use middleware like express-rate-limit or nginx limit_req module"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement zero trust architecture",
+      "why": "Zero trust assumes breach and verifies every access request",
+      "fix": "Require authentication for all resources regardless of network location"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "tip",
+      "title": "Enable audit logging",
+      "why": "Audit logs are essential for incident response and compliance",
+      "fix": "Log authentication events, data access, and configuration changes"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure cookie flags",
+      "why": "Insecure cookies can be stolen via XSS or transmitted over HTTP",
+      "fix": "Set HttpOnly, Secure, and SameSite flags on all cookies"
+    }
+  ]
+}
