@@ -1,0 +1,48 @@
+{
+  "date": "2026-02-03",
+  "headline": "Essential Security Checks for Modern Apps",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement security incident response plan",
+      "why": "Prepared response reduces damage and recovery time from breaches",
+      "fix": "Document procedures, assign roles, and conduct regular drills"
+    },
+    {
+      "type": "check",
+      "title": "Disable directory listing",
+      "why": "Directory listing exposes file structure and sensitive files",
+      "fix": "Set 'Options -Indexes' in Apache or 'autoindex off' in nginx"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement disaster recovery plan",
+      "why": "Disasters and ransomware require tested recovery procedures",
+      "fix": "Document RTO/RPO, maintain offline backups, and test recovery quarterly"
+    },
+    {
+      "type": "check",
+      "title": "Verify container image security",
+      "why": "Vulnerable base images introduce security risks to containerized apps",
+      "fix": "Scan images with Trivy or Clair and use minimal base images"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement zero trust architecture",
+      "why": "Zero trust assumes breach and verifies every access request",
+      "fix": "Require authentication for all resources regardless of network location"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement password complexity requirements",
+      "why": "Weak passwords are easily cracked by brute force attacks",
+      "fix": "Require minimum 12 characters with mix of uppercase, lowercase, numbers, symbols"
+    },
+    {
+      "type": "check",
+      "title": "Verify encryption in transit",
+      "why": "Unencrypted data transmission exposes sensitive information",
+      "fix": "Enforce HTTPS for all endpoints and use TLS for internal services"
+    }
+  ]
+}
