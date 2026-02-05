@@ -1,0 +1,48 @@
+{
+  "date": "2026-02-05",
+  "headline": "Critical Security Patterns to Implement",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use security champions program",
+      "why": "Embedded security advocates improve security culture across teams",
+      "fix": "Designate security champions in each team and provide training"
+    },
+    {
+      "type": "tip",
+      "title": "Use Web Application Firewall (WAF)",
+      "why": "WAF protects against common web attacks like SQL injection and XSS",
+      "fix": "Deploy CloudFlare, AWS WAF, or ModSecurity"
+    },
+    {
+      "type": "tip",
+      "title": "Enable DNSSEC for your domain",
+      "why": "DNSSEC prevents DNS spoofing attacks by cryptographically signing DNS records",
+      "fix": "Contact your DNS provider to enable DNSSEC and add DS records to your registrar"
+    },
+    {
+      "type": "check",
+      "title": "Verify backup encryption",
+      "why": "Unencrypted backups are a major data breach risk if storage is compromised",
+      "fix": "Enable encryption at rest and in transit for all backup solutions"
+    },
+    {
+      "type": "tip",
+      "title": "Enable MFA for all admin accounts",
+      "why": "Multi-factor authentication prevents account takeover even if passwords are stolen",
+      "fix": "Use authenticator apps (Google Authenticator, Authy) or hardware keys (YubiKey)"
+    },
+    {
+      "type": "check",
+      "title": "Review firewall rules",
+      "why": "Overly permissive firewall rules expose unnecessary services",
+      "fix": "Apply principle of least privilege and close unused ports"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement data classification",
+      "why": "Classification ensures appropriate security controls for sensitive data",
+      "fix": "Label data as public, internal, confidential, or restricted"
+    }
+  ]
+}
