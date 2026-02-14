@@ -1,0 +1,48 @@
+{
+  "date": "2026-02-14",
+  "headline": "Security Best Practices You Should Know",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Implement API authentication",
+      "why": "Unauthenticated APIs allow unauthorized access to data and functions",
+      "fix": "Use OAuth 2.0, JWT tokens, or API keys with proper validation"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security monitoring",
+      "why": "Real-time monitoring detects attacks and anomalies early",
+      "fix": "Use SIEM tools and set up alerts for suspicious activities"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement network segmentation",
+      "why": "Segmentation limits lateral movement in case of breach",
+      "fix": "Separate production, staging, and development networks with firewalls"
+    },
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement input validation",
+      "why": "Unvalidated input leads to injection attacks and data corruption",
+      "fix": "Validate all user input on both client and server side"
+    },
+    {
+      "type": "tip",
+      "title": "Use security linters in CI/CD",
+      "why": "Automated security checks catch vulnerabilities before deployment",
+      "fix": "Integrate tools like Bandit (Python), ESLint security plugin (JS)"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    }
+  ]
+}
