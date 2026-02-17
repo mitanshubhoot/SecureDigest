@@ -1,0 +1,36 @@
+{
+  "date": "2026-02-17",
+  "headline": "Reduce Risk: Today's Security Priorities",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Verify API versioning strategy",
+      "why": "Deprecated API versions may have unpatched vulnerabilities",
+      "fix": "Maintain clear deprecation timeline and force upgrades for old versions"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security incident response plan",
+      "why": "Prepared response reduces damage and recovery time from breaches",
+      "fix": "Document procedures, assign roles, and conduct regular drills"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure cookie flags",
+      "why": "Insecure cookies can be stolen via XSS or transmitted over HTTP",
+      "fix": "Set HttpOnly, Secure, and SameSite flags on all cookies"
+    },
+    {
+      "type": "tip",
+      "title": "Use HSTS headers",
+      "why": "HTTP Strict Transport Security forces browsers to only connect via HTTPS",
+      "fix": "Add header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains'"
+    },
+    {
+      "type": "check",
+      "title": "Verify SSL certificate validity",
+      "why": "Expired certificates break HTTPS and expose users to MITM attacks",
+      "fix": "Set up automated renewal with Let's Encrypt or monitor expiry dates"
+    }
+  ]
+}
