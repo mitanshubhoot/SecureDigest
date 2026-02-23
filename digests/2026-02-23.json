@@ -1,0 +1,36 @@
+{
+  "date": "2026-02-23",
+  "headline": "Essential Security Checks for Modern Apps",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    },
+    {
+      "type": "check",
+      "title": "Verify SPF records are configured",
+      "why": "SPF records prevent email spoofing by specifying which servers can send email for your domain",
+      "fix": "Add a TXT record: 'v=spf1 include:_spf.google.com ~all' (adjust for your mail provider)"
+    },
+    {
+      "type": "check",
+      "title": "Review cloud storage permissions",
+      "why": "Misconfigured S3 buckets and storage accounts lead to data leaks",
+      "fix": "Ensure buckets are private and use IAM policies for access control"
+    },
+    {
+      "type": "pattern",
+      "title": "Rotate API keys quarterly",
+      "why": "Regular rotation limits the window of exposure if keys are compromised",
+      "fix": "Set calendar reminders and use secret management tools like HashiCorp Vault"
+    }
+  ]
+}
