@@ -1,0 +1,42 @@
+{
+  "date": "2026-02-25",
+  "headline": "Essential Security Checks for Modern Apps",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use TLS 1.3 exclusively",
+      "why": "Older TLS versions have known vulnerabilities and weaker cipher suites",
+      "fix": "Update server config to disable TLS 1.0, 1.1, 1.2 and enable only TLS 1.3"
+    },
+    {
+      "type": "tip",
+      "title": "Use security champions program",
+      "why": "Embedded security advocates improve security culture across teams",
+      "fix": "Designate security champions in each team and provide training"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security incident response plan",
+      "why": "Prepared response reduces damage and recovery time from breaches",
+      "fix": "Document procedures, assign roles, and conduct regular drills"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement password complexity requirements",
+      "why": "Weak passwords are easily cracked by brute force attacks",
+      "fix": "Require minimum 12 characters with mix of uppercase, lowercase, numbers, symbols"
+    },
+    {
+      "type": "check",
+      "title": "Verify mobile app security",
+      "why": "Mobile apps often have unique vulnerabilities like insecure storage",
+      "fix": "Use OWASP Mobile Security Testing Guide for comprehensive testing"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement network segmentation",
+      "why": "Segmentation limits lateral movement in case of breach",
+      "fix": "Separate production, staging, and development networks with firewalls"
+    }
+  ]
+}
