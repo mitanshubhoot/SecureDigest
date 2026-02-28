@@ -1,0 +1,42 @@
+{
+  "date": "2026-02-28",
+  "headline": "Your Daily Security Improvement Guide",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement input validation",
+      "why": "Unvalidated input leads to injection attacks and data corruption",
+      "fix": "Validate all user input on both client and server side"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement rate limiting on APIs",
+      "why": "Rate limits prevent brute force attacks and API abuse",
+      "fix": "Use middleware like express-rate-limit or nginx limit_req module"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "check",
+      "title": "Verify encryption in transit",
+      "why": "Unencrypted data transmission exposes sensitive information",
+      "fix": "Enforce HTTPS for all endpoints and use TLS for internal services"
+    },
+    {
+      "type": "tip",
+      "title": "Enable database encryption at rest",
+      "why": "Unencrypted databases are vulnerable if storage media is compromised",
+      "fix": "Enable Transparent Data Encryption (TDE) or equivalent for your database"
+    },
+    {
+      "type": "tip",
+      "title": "Use security linters in CI/CD",
+      "why": "Automated security checks catch vulnerabilities before deployment",
+      "fix": "Integrate tools like Bandit (Python), ESLint security plugin (JS)"
+    }
+  ]
+}
