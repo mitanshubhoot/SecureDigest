@@ -1,0 +1,42 @@
+{
+  "date": "2026-03-06",
+  "headline": "Security Fundamentals for Production Systems",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement input validation",
+      "why": "Unvalidated input leads to injection attacks and data corruption",
+      "fix": "Validate all user input on both client and server side"
+    },
+    {
+      "type": "check",
+      "title": "Verify encryption in transit",
+      "why": "Unencrypted data transmission exposes sensitive information",
+      "fix": "Enforce HTTPS for all endpoints and use TLS for internal services"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security monitoring",
+      "why": "Real-time monitoring detects attacks and anomalies early",
+      "fix": "Use SIEM tools and set up alerts for suspicious activities"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement network segmentation",
+      "why": "Segmentation limits lateral movement in case of breach",
+      "fix": "Separate production, staging, and development networks with firewalls"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security incident response plan",
+      "why": "Prepared response reduces damage and recovery time from breaches",
+      "fix": "Document procedures, assign roles, and conduct regular drills"
+    }
+  ]
+}
