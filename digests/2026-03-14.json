@@ -1,0 +1,54 @@
+{
+  "date": "2026-03-14",
+  "headline": "Build Resilient Systems: Key Practices",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use security champions program",
+      "why": "Embedded security advocates improve security culture across teams",
+      "fix": "Designate security champions in each team and provide training"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement password complexity requirements",
+      "why": "Weak passwords are easily cracked by brute force attacks",
+      "fix": "Require minimum 12 characters with mix of uppercase, lowercase, numbers, symbols"
+    },
+    {
+      "type": "tip",
+      "title": "Enable database encryption at rest",
+      "why": "Unencrypted databases are vulnerable if storage media is compromised",
+      "fix": "Enable Transparent Data Encryption (TDE) or equivalent for your database"
+    },
+    {
+      "type": "tip",
+      "title": "Enable DNSSEC for your domain",
+      "why": "DNSSEC prevents DNS spoofing attacks by cryptographically signing DNS records",
+      "fix": "Contact your DNS provider to enable DNSSEC and add DS records to your registrar"
+    },
+    {
+      "type": "tip",
+      "title": "Use security headers scanner",
+      "why": "Missing security headers leave applications vulnerable to common attacks",
+      "fix": "Use securityheaders.com to scan and implement recommended headers"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement input validation",
+      "why": "Unvalidated input leads to injection attacks and data corruption",
+      "fix": "Validate all user input on both client and server side"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security monitoring",
+      "why": "Real-time monitoring detects attacks and anomalies early",
+      "fix": "Use SIEM tools and set up alerts for suspicious activities"
+    }
+  ]
+}
