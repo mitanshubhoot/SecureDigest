@@ -1,0 +1,42 @@
+{
+  "date": "2026-03-21",
+  "headline": "Essential Security Checks for Modern Apps",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Verify mobile app security",
+      "why": "Mobile apps often have unique vulnerabilities like insecure storage",
+      "fix": "Use OWASP Mobile Security Testing Guide for comprehensive testing"
+    },
+    {
+      "type": "tip",
+      "title": "Use security headers scanner",
+      "why": "Missing security headers leave applications vulnerable to common attacks",
+      "fix": "Use securityheaders.com to scan and implement recommended headers"
+    },
+    {
+      "type": "tip",
+      "title": "Use HSTS headers",
+      "why": "HTTP Strict Transport Security forces browsers to only connect via HTTPS",
+      "fix": "Add header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains'"
+    },
+    {
+      "type": "tip",
+      "title": "Implement API authentication",
+      "why": "Unauthenticated APIs allow unauthorized access to data and functions",
+      "fix": "Use OAuth 2.0, JWT tokens, or API keys with proper validation"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement password complexity requirements",
+      "why": "Weak passwords are easily cracked by brute force attacks",
+      "fix": "Require minimum 12 characters with mix of uppercase, lowercase, numbers, symbols"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    }
+  ]
+}
