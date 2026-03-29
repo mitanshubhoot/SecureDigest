@@ -1,0 +1,54 @@
+{
+  "date": "2026-03-29",
+  "headline": "Harden Your Systems: Today's Focus Areas",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement data classification",
+      "why": "Classification ensures appropriate security controls for sensitive data",
+      "fix": "Label data as public, internal, confidential, or restricted"
+    },
+    {
+      "type": "check",
+      "title": "Verify API versioning strategy",
+      "why": "Deprecated API versions may have unpatched vulnerabilities",
+      "fix": "Maintain clear deprecation timeline and force upgrades for old versions"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    },
+    {
+      "type": "tip",
+      "title": "Enable database encryption at rest",
+      "why": "Unencrypted databases are vulnerable if storage media is compromised",
+      "fix": "Enable Transparent Data Encryption (TDE) or equivalent for your database"
+    },
+    {
+      "type": "tip",
+      "title": "Use subresource integrity (SRI)",
+      "why": "SRI prevents compromised CDN resources from executing malicious code",
+      "fix": "Add integrity attribute to script and link tags loading external resources"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security incident response plan",
+      "why": "Prepared response reduces damage and recovery time from breaches",
+      "fix": "Document procedures, assign roles, and conduct regular drills"
+    },
+    {
+      "type": "pattern",
+      "title": "Use parameterized queries",
+      "why": "Parameterized queries prevent SQL injection attacks",
+      "fix": "Never concatenate user input into SQL; use prepared statements instead"
+    }
+  ]
+}
