@@ -1,0 +1,36 @@
+{
+  "date": "2026-04-01",
+  "headline": "Security Best Practices You Should Know",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement secure software development lifecycle",
+      "why": "Security integrated throughout SDLC is more effective than bolt-on security",
+      "fix": "Include threat modeling, security reviews, and testing in each phase"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement input validation",
+      "why": "Unvalidated input leads to injection attacks and data corruption",
+      "fix": "Validate all user input on both client and server side"
+    },
+    {
+      "type": "tip",
+      "title": "Enable audit logging",
+      "why": "Audit logs are essential for incident response and compliance",
+      "fix": "Log authentication events, data access, and configuration changes"
+    },
+    {
+      "type": "check",
+      "title": "Scan for exposed secrets in repos",
+      "why": "Committed secrets can be found by attackers scanning public repositories",
+      "fix": "Use tools like git-secrets or truffleHog to scan commit history"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    }
+  ]
+}
