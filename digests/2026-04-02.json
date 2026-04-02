@@ -1,0 +1,48 @@
+{
+  "date": "2026-04-02",
+  "headline": "Strengthen Your Security Posture Today",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement secure software development lifecycle",
+      "why": "Security integrated throughout SDLC is more effective than bolt-on security",
+      "fix": "Include threat modeling, security reviews, and testing in each phase"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security incident response plan",
+      "why": "Prepared response reduces damage and recovery time from breaches",
+      "fix": "Document procedures, assign roles, and conduct regular drills"
+    },
+    {
+      "type": "check",
+      "title": "Verify container image security",
+      "why": "Vulnerable base images introduce security risks to containerized apps",
+      "fix": "Scan images with Trivy or Clair and use minimal base images"
+    },
+    {
+      "type": "pattern",
+      "title": "Use parameterized queries",
+      "why": "Parameterized queries prevent SQL injection attacks",
+      "fix": "Never concatenate user input into SQL; use prepared statements instead"
+    },
+    {
+      "type": "check",
+      "title": "Verify CORS configuration",
+      "why": "Misconfigured CORS can allow unauthorized cross-origin requests",
+      "fix": "Explicitly whitelist allowed origins instead of using '*'"
+    },
+    {
+      "type": "tip",
+      "title": "Enable audit logging",
+      "why": "Audit logs are essential for incident response and compliance",
+      "fix": "Log authentication events, data access, and configuration changes"
+    },
+    {
+      "type": "pattern",
+      "title": "Use principle of least privilege",
+      "why": "Excessive permissions increase blast radius of compromised accounts",
+      "fix": "Grant only minimum necessary permissions for each role"
+    }
+  ]
+}
