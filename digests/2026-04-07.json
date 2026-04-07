@@ -1,0 +1,48 @@
+{
+  "date": "2026-04-07",
+  "headline": "Security Best Practices You Should Know",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Verify mobile app security",
+      "why": "Mobile apps often have unique vulnerabilities like insecure storage",
+      "fix": "Use OWASP Mobile Security Testing Guide for comprehensive testing"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    },
+    {
+      "type": "check",
+      "title": "Disable directory listing",
+      "why": "Directory listing exposes file structure and sensitive files",
+      "fix": "Set 'Options -Indexes' in Apache or 'autoindex off' in nginx"
+    },
+    {
+      "type": "pattern",
+      "title": "Use principle of least privilege",
+      "why": "Excessive permissions increase blast radius of compromised accounts",
+      "fix": "Grant only minimum necessary permissions for each role"
+    },
+    {
+      "type": "check",
+      "title": "Verify container image security",
+      "why": "Vulnerable base images introduce security risks to containerized apps",
+      "fix": "Scan images with Trivy or Clair and use minimal base images"
+    },
+    {
+      "type": "tip",
+      "title": "Use security linters in CI/CD",
+      "why": "Automated security checks catch vulnerabilities before deployment",
+      "fix": "Integrate tools like Bandit (Python), ESLint security plugin (JS)"
+    },
+    {
+      "type": "tip",
+      "title": "Enable audit logging",
+      "why": "Audit logs are essential for incident response and compliance",
+      "fix": "Log authentication events, data access, and configuration changes"
+    }
+  ]
+}
