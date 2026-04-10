@@ -1,0 +1,42 @@
+{
+  "date": "2026-04-10",
+  "headline": "Harden Your Systems: Today's Focus Areas",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use security headers scanner",
+      "why": "Missing security headers leave applications vulnerable to common attacks",
+      "fix": "Use securityheaders.com to scan and implement recommended headers"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement network segmentation",
+      "why": "Segmentation limits lateral movement in case of breach",
+      "fix": "Separate production, staging, and development networks with firewalls"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement data classification",
+      "why": "Classification ensures appropriate security controls for sensitive data",
+      "fix": "Label data as public, internal, confidential, or restricted"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement rate limiting on APIs",
+      "why": "Rate limits prevent brute force attacks and API abuse",
+      "fix": "Use middleware like express-rate-limit or nginx limit_req module"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    },
+    {
+      "type": "pattern",
+      "title": "Rotate API keys quarterly",
+      "why": "Regular rotation limits the window of exposure if keys are compromised",
+      "fix": "Set calendar reminders and use secret management tools like HashiCorp Vault"
+    }
+  ]
+}
