@@ -1,0 +1,48 @@
+{
+  "date": "2026-04-13",
+  "headline": "Protect Your Infrastructure: Daily Reminders",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Verify API versioning strategy",
+      "why": "Deprecated API versions may have unpatched vulnerabilities",
+      "fix": "Maintain clear deprecation timeline and force upgrades for old versions"
+    },
+    {
+      "type": "check",
+      "title": "Review cloud storage permissions",
+      "why": "Misconfigured S3 buckets and storage accounts lead to data leaks",
+      "fix": "Ensure buckets are private and use IAM policies for access control"
+    },
+    {
+      "type": "check",
+      "title": "Verify mobile app security",
+      "why": "Mobile apps often have unique vulnerabilities like insecure storage",
+      "fix": "Use OWASP Mobile Security Testing Guide for comprehensive testing"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "check",
+      "title": "Review firewall rules",
+      "why": "Overly permissive firewall rules expose unnecessary services",
+      "fix": "Apply principle of least privilege and close unused ports"
+    },
+    {
+      "type": "tip",
+      "title": "Use security headers scanner",
+      "why": "Missing security headers leave applications vulnerable to common attacks",
+      "fix": "Use securityheaders.com to scan and implement recommended headers"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security awareness training",
+      "why": "Human error is the leading cause of security incidents",
+      "fix": "Conduct quarterly phishing simulations and security training"
+    }
+  ]
+}
