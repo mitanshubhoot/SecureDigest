@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-02",
+  "headline": "Reduce Risk: Today's Security Priorities",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Implement API authentication",
+      "why": "Unauthenticated APIs allow unauthorized access to data and functions",
+      "fix": "Use OAuth 2.0, JWT tokens, or API keys with proper validation"
+    },
+    {
+      "type": "pattern",
+      "title": "Use principle of least privilege",
+      "why": "Excessive permissions increase blast radius of compromised accounts",
+      "fix": "Grant only minimum necessary permissions for each role"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure cookie flags",
+      "why": "Insecure cookies can be stolen via XSS or transmitted over HTTP",
+      "fix": "Set HttpOnly, Secure, and SameSite flags on all cookies"
+    },
+    {
+      "type": "check",
+      "title": "Review cloud storage permissions",
+      "why": "Misconfigured S3 buckets and storage accounts lead to data leaks",
+      "fix": "Ensure buckets are private and use IAM policies for access control"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    },
+    {
+      "type": "check",
+      "title": "Verify SPF records are configured",
+      "why": "SPF records prevent email spoofing by specifying which servers can send email for your domain",
+      "fix": "Add a TXT record: 'v=spf1 include:_spf.google.com ~all' (adjust for your mail provider)"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement secure software development lifecycle",
+      "why": "Security integrated throughout SDLC is more effective than bolt-on security",
+      "fix": "Include threat modeling, security reviews, and testing in each phase"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement zero trust architecture",
+      "why": "Zero trust assumes breach and verifies every access request",
+      "fix": "Require authentication for all resources regardless of network location"
+    }
+  ]
+}
