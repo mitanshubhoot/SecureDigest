@@ -1,0 +1,42 @@
+{
+  "date": "2026-05-14",
+  "headline": "Security Fundamentals for Production Systems",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement secure software development lifecycle",
+      "why": "Security integrated throughout SDLC is more effective than bolt-on security",
+      "fix": "Include threat modeling, security reviews, and testing in each phase"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement rate limiting on APIs",
+      "why": "Rate limits prevent brute force attacks and API abuse",
+      "fix": "Use middleware like express-rate-limit or nginx limit_req module"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "check",
+      "title": "Verify SPF records are configured",
+      "why": "SPF records prevent email spoofing by specifying which servers can send email for your domain",
+      "fix": "Add a TXT record: 'v=spf1 include:_spf.google.com ~all' (adjust for your mail provider)"
+    },
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement zero trust architecture",
+      "why": "Zero trust assumes breach and verifies every access request",
+      "fix": "Require authentication for all resources regardless of network location"
+    }
+  ]
+}
