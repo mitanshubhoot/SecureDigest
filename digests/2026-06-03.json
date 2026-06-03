@@ -1,0 +1,54 @@
+{
+  "date": "2026-06-03",
+  "headline": "Harden Your Systems: Today's Focus Areas",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement rate limiting on APIs",
+      "why": "Rate limits prevent brute force attacks and API abuse",
+      "fix": "Use middleware like express-rate-limit or nginx limit_req module"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure cookie flags",
+      "why": "Insecure cookies can be stolen via XSS or transmitted over HTTP",
+      "fix": "Set HttpOnly, Secure, and SameSite flags on all cookies"
+    },
+    {
+      "type": "tip",
+      "title": "Use subresource integrity (SRI)",
+      "why": "SRI prevents compromised CDN resources from executing malicious code",
+      "fix": "Add integrity attribute to script and link tags loading external resources"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement secure software development lifecycle",
+      "why": "Security integrated throughout SDLC is more effective than bolt-on security",
+      "fix": "Include threat modeling, security reviews, and testing in each phase"
+    },
+    {
+      "type": "check",
+      "title": "Verify container image security",
+      "why": "Vulnerable base images introduce security risks to containerized apps",
+      "fix": "Scan images with Trivy or Clair and use minimal base images"
+    },
+    {
+      "type": "check",
+      "title": "Verify backup encryption",
+      "why": "Unencrypted backups are a major data breach risk if storage is compromised",
+      "fix": "Enable encryption at rest and in transit for all backup solutions"
+    },
+    {
+      "type": "tip",
+      "title": "Use Web Application Firewall (WAF)",
+      "why": "WAF protects against common web attacks like SQL injection and XSS",
+      "fix": "Deploy CloudFlare, AWS WAF, or ModSecurity"
+    },
+    {
+      "type": "tip",
+      "title": "Enable database encryption at rest",
+      "why": "Unencrypted databases are vulnerable if storage media is compromised",
+      "fix": "Enable Transparent Data Encryption (TDE) or equivalent for your database"
+    }
+  ]
+}
