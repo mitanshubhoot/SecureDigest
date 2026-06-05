@@ -1,0 +1,42 @@
+{
+  "date": "2026-06-05",
+  "headline": "Critical Security Patterns to Implement",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    },
+    {
+      "type": "tip",
+      "title": "Enable MFA for all admin accounts",
+      "why": "Multi-factor authentication prevents account takeover even if passwords are stolen",
+      "fix": "Use authenticator apps (Google Authenticator, Authy) or hardware keys (YubiKey)"
+    },
+    {
+      "type": "tip",
+      "title": "Scan dependencies for vulnerabilities",
+      "why": "Vulnerable dependencies are a common attack vector in supply chain attacks",
+      "fix": "Use tools like npm audit, pip-audit, or Snyk in your CI/CD pipeline"
+    },
+    {
+      "type": "tip",
+      "title": "Use HSTS headers",
+      "why": "HTTP Strict Transport Security forces browsers to only connect via HTTPS",
+      "fix": "Add header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains'"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement data classification",
+      "why": "Classification ensures appropriate security controls for sensitive data",
+      "fix": "Label data as public, internal, confidential, or restricted"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement Content Security Policy",
+      "why": "CSP headers prevent XSS attacks by controlling which resources can load",
+      "fix": "Start with: 'Content-Security-Policy: default-src 'self'; script-src 'self''"
+    }
+  ]
+}
