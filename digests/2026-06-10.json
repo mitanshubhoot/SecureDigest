@@ -1,0 +1,42 @@
+{
+  "date": "2026-06-10",
+  "headline": "Harden Your Systems: Today's Focus Areas",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use HSTS headers",
+      "why": "HTTP Strict Transport Security forces browsers to only connect via HTTPS",
+      "fix": "Add header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains'"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure random number generation",
+      "why": "Weak randomness compromises cryptographic operations",
+      "fix": "Use crypto.randomBytes() or secrets module, not Math.random()"
+    },
+    {
+      "type": "check",
+      "title": "Verify container image security",
+      "why": "Vulnerable base images introduce security risks to containerized apps",
+      "fix": "Scan images with Trivy or Clair and use minimal base images"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security awareness training",
+      "why": "Human error is the leading cause of security incidents",
+      "fix": "Conduct quarterly phishing simulations and security training"
+    },
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    },
+    {
+      "type": "check",
+      "title": "Review third-party vendor access",
+      "why": "Excessive vendor permissions increase attack surface and compliance risk",
+      "fix": "Audit vendor access quarterly and apply principle of least privilege"
+    }
+  ]
+}
