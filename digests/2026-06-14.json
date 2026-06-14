@@ -1,0 +1,42 @@
+{
+  "date": "2026-06-14",
+  "headline": "Build Resilient Systems: Key Practices",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    },
+    {
+      "type": "check",
+      "title": "Verify backup encryption",
+      "why": "Unencrypted backups are a major data breach risk if storage is compromised",
+      "fix": "Enable encryption at rest and in transit for all backup solutions"
+    },
+    {
+      "type": "check",
+      "title": "Verify CORS configuration",
+      "why": "Misconfigured CORS can allow unauthorized cross-origin requests",
+      "fix": "Explicitly whitelist allowed origins instead of using '*'"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security awareness training",
+      "why": "Human error is the leading cause of security incidents",
+      "fix": "Conduct quarterly phishing simulations and security training"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement input validation",
+      "why": "Unvalidated input leads to injection attacks and data corruption",
+      "fix": "Validate all user input on both client and server side"
+    },
+    {
+      "type": "check",
+      "title": "Verify API versioning strategy",
+      "why": "Deprecated API versions may have unpatched vulnerabilities",
+      "fix": "Maintain clear deprecation timeline and force upgrades for old versions"
+    }
+  ]
+}
