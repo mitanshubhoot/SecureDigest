@@ -1,0 +1,54 @@
+{
+  "date": "2026-06-15",
+  "headline": "Reduce Risk: Today's Security Priorities",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Enable database encryption at rest",
+      "why": "Unencrypted databases are vulnerable if storage media is compromised",
+      "fix": "Enable Transparent Data Encryption (TDE) or equivalent for your database"
+    },
+    {
+      "type": "check",
+      "title": "Disable directory listing",
+      "why": "Directory listing exposes file structure and sensitive files",
+      "fix": "Set 'Options -Indexes' in Apache or 'autoindex off' in nginx"
+    },
+    {
+      "type": "check",
+      "title": "Review firewall rules",
+      "why": "Overly permissive firewall rules expose unnecessary services",
+      "fix": "Apply principle of least privilege and close unused ports"
+    },
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    },
+    {
+      "type": "check",
+      "title": "Verify API versioning strategy",
+      "why": "Deprecated API versions may have unpatched vulnerabilities",
+      "fix": "Maintain clear deprecation timeline and force upgrades for old versions"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security awareness training",
+      "why": "Human error is the leading cause of security incidents",
+      "fix": "Conduct quarterly phishing simulations and security training"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure random number generation",
+      "why": "Weak randomness compromises cryptographic operations",
+      "fix": "Use crypto.randomBytes() or secrets module, not Math.random()"
+    },
+    {
+      "type": "tip",
+      "title": "Use TLS 1.3 exclusively",
+      "why": "Older TLS versions have known vulnerabilities and weaker cipher suites",
+      "fix": "Update server config to disable TLS 1.0, 1.1, 1.2 and enable only TLS 1.3"
+    }
+  ]
+}
