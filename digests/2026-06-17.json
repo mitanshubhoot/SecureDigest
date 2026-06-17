@@ -1,0 +1,36 @@
+{
+  "date": "2026-06-17",
+  "headline": "Essential Security Checks for Modern Apps",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Scan dependencies for vulnerabilities",
+      "why": "Vulnerable dependencies are a common attack vector in supply chain attacks",
+      "fix": "Use tools like npm audit, pip-audit, or Snyk in your CI/CD pipeline"
+    },
+    {
+      "type": "check",
+      "title": "Verify SPF records are configured",
+      "why": "SPF records prevent email spoofing by specifying which servers can send email for your domain",
+      "fix": "Add a TXT record: 'v=spf1 include:_spf.google.com ~all' (adjust for your mail provider)"
+    },
+    {
+      "type": "check",
+      "title": "Verify backup encryption",
+      "why": "Unencrypted backups are a major data breach risk if storage is compromised",
+      "fix": "Enable encryption at rest and in transit for all backup solutions"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    }
+  ]
+}
