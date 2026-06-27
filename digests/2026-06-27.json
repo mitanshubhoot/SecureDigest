@@ -1,0 +1,54 @@
+{
+  "date": "2026-06-27",
+  "headline": "Reduce Risk: Today's Security Priorities",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    },
+    {
+      "type": "tip",
+      "title": "Enable MFA for all admin accounts",
+      "why": "Multi-factor authentication prevents account takeover even if passwords are stolen",
+      "fix": "Use authenticator apps (Google Authenticator, Authy) or hardware keys (YubiKey)"
+    },
+    {
+      "type": "tip",
+      "title": "Use subresource integrity (SRI)",
+      "why": "SRI prevents compromised CDN resources from executing malicious code",
+      "fix": "Add integrity attribute to script and link tags loading external resources"
+    },
+    {
+      "type": "tip",
+      "title": "Enable audit logging",
+      "why": "Audit logs are essential for incident response and compliance",
+      "fix": "Log authentication events, data access, and configuration changes"
+    },
+    {
+      "type": "check",
+      "title": "Scan for exposed secrets in repos",
+      "why": "Committed secrets can be found by attackers scanning public repositories",
+      "fix": "Use tools like git-secrets or truffleHog to scan commit history"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure cookie flags",
+      "why": "Insecure cookies can be stolen via XSS or transmitted over HTTP",
+      "fix": "Set HttpOnly, Secure, and SameSite flags on all cookies"
+    },
+    {
+      "type": "tip",
+      "title": "Scan dependencies for vulnerabilities",
+      "why": "Vulnerable dependencies are a common attack vector in supply chain attacks",
+      "fix": "Use tools like npm audit, pip-audit, or Snyk in your CI/CD pipeline"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    }
+  ]
+}
