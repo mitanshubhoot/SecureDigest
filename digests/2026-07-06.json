@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-06",
+  "headline": "Security Best Practices You Should Know",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement security incident response plan",
+      "why": "Prepared response reduces damage and recovery time from breaches",
+      "fix": "Document procedures, assign roles, and conduct regular drills"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement Content Security Policy",
+      "why": "CSP headers prevent XSS attacks by controlling which resources can load",
+      "fix": "Start with: 'Content-Security-Policy: default-src 'self'; script-src 'self''"
+    },
+    {
+      "type": "check",
+      "title": "Verify API versioning strategy",
+      "why": "Deprecated API versions may have unpatched vulnerabilities",
+      "fix": "Maintain clear deprecation timeline and force upgrades for old versions"
+    },
+    {
+      "type": "check",
+      "title": "Verify SPF records are configured",
+      "why": "SPF records prevent email spoofing by specifying which servers can send email for your domain",
+      "fix": "Add a TXT record: 'v=spf1 include:_spf.google.com ~all' (adjust for your mail provider)"
+    },
+    {
+      "type": "pattern",
+      "title": "Rotate API keys quarterly",
+      "why": "Regular rotation limits the window of exposure if keys are compromised",
+      "fix": "Set calendar reminders and use secret management tools like HashiCorp Vault"
+    }
+  ]
+}
