@@ -1,0 +1,48 @@
+{
+  "date": "2026-07-17",
+  "headline": "Your Daily Security Improvement Guide",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use security headers scanner",
+      "why": "Missing security headers leave applications vulnerable to common attacks",
+      "fix": "Use securityheaders.com to scan and implement recommended headers"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement rate limiting on APIs",
+      "why": "Rate limits prevent brute force attacks and API abuse",
+      "fix": "Use middleware like express-rate-limit or nginx limit_req module"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement network segmentation",
+      "why": "Segmentation limits lateral movement in case of breach",
+      "fix": "Separate production, staging, and development networks with firewalls"
+    },
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    },
+    {
+      "type": "pattern",
+      "title": "Use parameterized queries",
+      "why": "Parameterized queries prevent SQL injection attacks",
+      "fix": "Never concatenate user input into SQL; use prepared statements instead"
+    },
+    {
+      "type": "check",
+      "title": "Review third-party vendor access",
+      "why": "Excessive vendor permissions increase attack surface and compliance risk",
+      "fix": "Audit vendor access quarterly and apply principle of least privilege"
+    },
+    {
+      "type": "check",
+      "title": "Verify encryption in transit",
+      "why": "Unencrypted data transmission exposes sensitive information",
+      "fix": "Enforce HTTPS for all endpoints and use TLS for internal services"
+    }
+  ]
+}
