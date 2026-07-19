@@ -1,0 +1,48 @@
+{
+  "date": "2026-07-19",
+  "headline": "Protect Your Infrastructure: Daily Reminders",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement security awareness training",
+      "why": "Human error is the leading cause of security incidents",
+      "fix": "Conduct quarterly phishing simulations and security training"
+    },
+    {
+      "type": "tip",
+      "title": "Use security linters in CI/CD",
+      "why": "Automated security checks catch vulnerabilities before deployment",
+      "fix": "Integrate tools like Bandit (Python), ESLint security plugin (JS)"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement password complexity requirements",
+      "why": "Weak passwords are easily cracked by brute force attacks",
+      "fix": "Require minimum 12 characters with mix of uppercase, lowercase, numbers, symbols"
+    },
+    {
+      "type": "check",
+      "title": "Verify backup encryption",
+      "why": "Unencrypted backups are a major data breach risk if storage is compromised",
+      "fix": "Enable encryption at rest and in transit for all backup solutions"
+    },
+    {
+      "type": "check",
+      "title": "Verify mobile app security",
+      "why": "Mobile apps often have unique vulnerabilities like insecure storage",
+      "fix": "Use OWASP Mobile Security Testing Guide for comprehensive testing"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure cookie flags",
+      "why": "Insecure cookies can be stolen via XSS or transmitted over HTTP",
+      "fix": "Set HttpOnly, Secure, and SameSite flags on all cookies"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement input validation",
+      "why": "Unvalidated input leads to injection attacks and data corruption",
+      "fix": "Validate all user input on both client and server side"
+    }
+  ]
+}
