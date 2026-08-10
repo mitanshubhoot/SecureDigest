@@ -1,0 +1,48 @@
+{
+  "date": "2026-08-10",
+  "headline": "Your Daily Security Improvement Guide",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use HSTS headers",
+      "why": "HTTP Strict Transport Security forces browsers to only connect via HTTPS",
+      "fix": "Add header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains'"
+    },
+    {
+      "type": "check",
+      "title": "Verify SSL certificate validity",
+      "why": "Expired certificates break HTTPS and expose users to MITM attacks",
+      "fix": "Set up automated renewal with Let's Encrypt or monitor expiry dates"
+    },
+    {
+      "type": "tip",
+      "title": "Enable DNSSEC for your domain",
+      "why": "DNSSEC prevents DNS spoofing attacks by cryptographically signing DNS records",
+      "fix": "Contact your DNS provider to enable DNSSEC and add DS records to your registrar"
+    },
+    {
+      "type": "tip",
+      "title": "Implement API authentication",
+      "why": "Unauthenticated APIs allow unauthorized access to data and functions",
+      "fix": "Use OAuth 2.0, JWT tokens, or API keys with proper validation"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement secure software development lifecycle",
+      "why": "Security integrated throughout SDLC is more effective than bolt-on security",
+      "fix": "Include threat modeling, security reviews, and testing in each phase"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement zero trust architecture",
+      "why": "Zero trust assumes breach and verifies every access request",
+      "fix": "Require authentication for all resources regardless of network location"
+    }
+  ]
+}
