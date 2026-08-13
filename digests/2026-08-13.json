@@ -1,0 +1,42 @@
+{
+  "date": "2026-08-13",
+  "headline": "Security Best Practices You Should Know",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    },
+    {
+      "type": "check",
+      "title": "Review user access permissions",
+      "why": "Stale permissions from former employees pose security risk",
+      "fix": "Conduct quarterly access reviews and remove unnecessary permissions"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security monitoring",
+      "why": "Real-time monitoring detects attacks and anomalies early",
+      "fix": "Use SIEM tools and set up alerts for suspicious activities"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "tip",
+      "title": "Use HSTS headers",
+      "why": "HTTP Strict Transport Security forces browsers to only connect via HTTPS",
+      "fix": "Add header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains'"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement Content Security Policy",
+      "why": "CSP headers prevent XSS attacks by controlling which resources can load",
+      "fix": "Start with: 'Content-Security-Policy: default-src 'self'; script-src 'self''"
+    }
+  ]
+}
