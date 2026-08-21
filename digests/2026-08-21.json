@@ -1,0 +1,36 @@
+{
+  "date": "2026-08-21",
+  "headline": "Protect Your Infrastructure: Daily Reminders",
+  "digest_items": [
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security awareness training",
+      "why": "Human error is the leading cause of security incidents",
+      "fix": "Conduct quarterly phishing simulations and security training"
+    },
+    {
+      "type": "check",
+      "title": "Disable directory listing",
+      "why": "Directory listing exposes file structure and sensitive files",
+      "fix": "Set 'Options -Indexes' in Apache or 'autoindex off' in nginx"
+    },
+    {
+      "type": "check",
+      "title": "Verify CORS configuration",
+      "why": "Misconfigured CORS can allow unauthorized cross-origin requests",
+      "fix": "Explicitly whitelist allowed origins instead of using '*'"
+    }
+  ]
+}
