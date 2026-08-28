@@ -1,0 +1,48 @@
+{
+  "date": "2026-08-28",
+  "headline": "Security Best Practices You Should Know",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use environment variables for secrets",
+      "why": "Hardcoded secrets in code are exposed in version control",
+      "fix": "Store secrets in .env files (gitignored) or secret management services"
+    },
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    },
+    {
+      "type": "pattern",
+      "title": "Use principle of least privilege",
+      "why": "Excessive permissions increase blast radius of compromised accounts",
+      "fix": "Grant only minimum necessary permissions for each role"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure random number generation",
+      "why": "Weak randomness compromises cryptographic operations",
+      "fix": "Use crypto.randomBytes() or secrets module, not Math.random()"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    },
+    {
+      "type": "check",
+      "title": "Verify container image security",
+      "why": "Vulnerable base images introduce security risks to containerized apps",
+      "fix": "Scan images with Trivy or Clair and use minimal base images"
+    }
+  ]
+}
