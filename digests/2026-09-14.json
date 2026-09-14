@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-14",
+  "headline": "Harden Your Systems: Today's Focus Areas",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement disaster recovery plan",
+      "why": "Disasters and ransomware require tested recovery procedures",
+      "fix": "Document RTO/RPO, maintain offline backups, and test recovery quarterly"
+    },
+    {
+      "type": "tip",
+      "title": "Use security linters in CI/CD",
+      "why": "Automated security checks catch vulnerabilities before deployment",
+      "fix": "Integrate tools like Bandit (Python), ESLint security plugin (JS)"
+    },
+    {
+      "type": "pattern",
+      "title": "Use principle of least privilege",
+      "why": "Excessive permissions increase blast radius of compromised accounts",
+      "fix": "Grant only minimum necessary permissions for each role"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure random number generation",
+      "why": "Weak randomness compromises cryptographic operations",
+      "fix": "Use crypto.randomBytes() or secrets module, not Math.random()"
+    },
+    {
+      "type": "check",
+      "title": "Verify SSL certificate validity",
+      "why": "Expired certificates break HTTPS and expose users to MITM attacks",
+      "fix": "Set up automated renewal with Let's Encrypt or monitor expiry dates"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure file upload validation",
+      "why": "Malicious file uploads can lead to remote code execution",
+      "fix": "Validate file types, scan for malware, and store uploads outside webroot"
+    },
+    {
+      "type": "tip",
+      "title": "Enable DNSSEC for your domain",
+      "why": "DNSSEC prevents DNS spoofing attacks by cryptographically signing DNS records",
+      "fix": "Contact your DNS provider to enable DNSSEC and add DS records to your registrar"
+    },
+    {
+      "type": "check",
+      "title": "Verify mobile app security",
+      "why": "Mobile apps often have unique vulnerabilities like insecure storage",
+      "fix": "Use OWASP Mobile Security Testing Guide for comprehensive testing"
+    }
+  ]
+}
