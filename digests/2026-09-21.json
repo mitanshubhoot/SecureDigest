@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-21",
+  "headline": "Your Daily Security Improvement Guide",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    },
+    {
+      "type": "tip",
+      "title": "Scan dependencies for vulnerabilities",
+      "why": "Vulnerable dependencies are a common attack vector in supply chain attacks",
+      "fix": "Use tools like npm audit, pip-audit, or Snyk in your CI/CD pipeline"
+    },
+    {
+      "type": "check",
+      "title": "Scan for exposed .git directories",
+      "why": "Exposed .git folders can leak source code and sensitive configuration",
+      "fix": "Block access in web server config or use .htaccess: 'RedirectMatch 404 /\\.git'"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement secure software development lifecycle",
+      "why": "Security integrated throughout SDLC is more effective than bolt-on security",
+      "fix": "Include threat modeling, security reviews, and testing in each phase"
+    },
+    {
+      "type": "tip",
+      "title": "Use subresource integrity (SRI)",
+      "why": "SRI prevents compromised CDN resources from executing malicious code",
+      "fix": "Add integrity attribute to script and link tags loading external resources"
+    },
+    {
+      "type": "check",
+      "title": "Verify backup encryption",
+      "why": "Unencrypted backups are a major data breach risk if storage is compromised",
+      "fix": "Enable encryption at rest and in transit for all backup solutions"
+    }
+  ]
+}
