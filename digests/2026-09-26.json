@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-26",
+  "headline": "Protect Your Infrastructure: Daily Reminders",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    },
+    {
+      "type": "check",
+      "title": "Verify SPF records are configured",
+      "why": "SPF records prevent email spoofing by specifying which servers can send email for your domain",
+      "fix": "Add a TXT record: 'v=spf1 include:_spf.google.com ~all' (adjust for your mail provider)"
+    },
+    {
+      "type": "check",
+      "title": "Verify encryption in transit",
+      "why": "Unencrypted data transmission exposes sensitive information",
+      "fix": "Enforce HTTPS for all endpoints and use TLS for internal services"
+    },
+    {
+      "type": "pattern",
+      "title": "Use parameterized queries",
+      "why": "Parameterized queries prevent SQL injection attacks",
+      "fix": "Never concatenate user input into SQL; use prepared statements instead"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement network segmentation",
+      "why": "Segmentation limits lateral movement in case of breach",
+      "fix": "Separate production, staging, and development networks with firewalls"
+    }
+  ]
+}
