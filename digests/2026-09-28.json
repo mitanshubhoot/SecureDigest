@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-28",
+  "headline": "Reduce Risk: Today's Security Priorities",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement security monitoring",
+      "why": "Real-time monitoring detects attacks and anomalies early",
+      "fix": "Use SIEM tools and set up alerts for suspicious activities"
+    },
+    {
+      "type": "tip",
+      "title": "Use security champions program",
+      "why": "Embedded security advocates improve security culture across teams",
+      "fix": "Designate security champions in each team and provide training"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    },
+    {
+      "type": "check",
+      "title": "Remove default credentials",
+      "why": "Default passwords are publicly known and exploited by automated scanners",
+      "fix": "Change all default passwords immediately after deployment"
+    },
+    {
+      "type": "tip",
+      "title": "Enable MFA for all admin accounts",
+      "why": "Multi-factor authentication prevents account takeover even if passwords are stolen",
+      "fix": "Use authenticator apps (Google Authenticator, Authy) or hardware keys (YubiKey)"
+    },
+    {
+      "type": "check",
+      "title": "Verify patch management process",
+      "why": "Unpatched systems are vulnerable to known exploits",
+      "fix": "Establish regular patching schedule and test updates before deployment"
+    },
+    {
+      "type": "check",
+      "title": "Verify SSL certificate validity",
+      "why": "Expired certificates break HTTPS and expose users to MITM attacks",
+      "fix": "Set up automated renewal with Let's Encrypt or monitor expiry dates"
+    }
+  ]
+}
