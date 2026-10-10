@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-10",
+  "headline": "Critical Security Patterns to Implement",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Use parameterized queries",
+      "why": "Parameterized queries prevent SQL injection attacks",
+      "fix": "Never concatenate user input into SQL; use prepared statements instead"
+    },
+    {
+      "type": "tip",
+      "title": "Use secure random number generation",
+      "why": "Weak randomness compromises cryptographic operations",
+      "fix": "Use crypto.randomBytes() or secrets module, not Math.random()"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    },
+    {
+      "type": "check",
+      "title": "Verify mobile app security",
+      "why": "Mobile apps often have unique vulnerabilities like insecure storage",
+      "fix": "Use OWASP Mobile Security Testing Guide for comprehensive testing"
+    },
+    {
+      "type": "check",
+      "title": "Verify CORS configuration",
+      "why": "Misconfigured CORS can allow unauthorized cross-origin requests",
+      "fix": "Explicitly whitelist allowed origins instead of using '*'"
+    },
+    {
+      "type": "tip",
+      "title": "Use environment variables for secrets",
+      "why": "Hardcoded secrets in code are exposed in version control",
+      "fix": "Store secrets in .env files (gitignored) or secret management services"
+    },
+    {
+      "type": "check",
+      "title": "Review firewall rules",
+      "why": "Overly permissive firewall rules expose unnecessary services",
+      "fix": "Apply principle of least privilege and close unused ports"
+    }
+  ]
+}
