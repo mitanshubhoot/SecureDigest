@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-30",
+  "headline": "Reduce Risk: Today's Security Priorities",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement security awareness training",
+      "why": "Human error is the leading cause of security incidents",
+      "fix": "Conduct quarterly phishing simulations and security training"
+    },
+    {
+      "type": "tip",
+      "title": "Use environment variables for secrets",
+      "why": "Hardcoded secrets in code are exposed in version control",
+      "fix": "Store secrets in .env files (gitignored) or secret management services"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement security incident response plan",
+      "why": "Prepared response reduces damage and recovery time from breaches",
+      "fix": "Document procedures, assign roles, and conduct regular drills"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement DMARC policy",
+      "why": "DMARC builds on SPF and DKIM to give domain owners control over email authentication",
+      "fix": "Add TXT record: 'v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com'"
+    },
+    {
+      "type": "check",
+      "title": "Verify mobile app security",
+      "why": "Mobile apps often have unique vulnerabilities like insecure storage",
+      "fix": "Use OWASP Mobile Security Testing Guide for comprehensive testing"
+    },
+    {
+      "type": "tip",
+      "title": "Use Web Application Firewall (WAF)",
+      "why": "WAF protects against common web attacks like SQL injection and XSS",
+      "fix": "Deploy CloudFlare, AWS WAF, or ModSecurity"
+    }
+  ]
+}
