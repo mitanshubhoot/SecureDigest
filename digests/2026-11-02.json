@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-02",
+  "headline": "Your Daily Security Improvement Guide",
+  "digest_items": [
+    {
+      "type": "tip",
+      "title": "Use secure cookie flags",
+      "why": "Insecure cookies can be stolen via XSS or transmitted over HTTP",
+      "fix": "Set HttpOnly, Secure, and SameSite flags on all cookies"
+    },
+    {
+      "type": "check",
+      "title": "Verify container image security",
+      "why": "Vulnerable base images introduce security risks to containerized apps",
+      "fix": "Scan images with Trivy or Clair and use minimal base images"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement data classification",
+      "why": "Classification ensures appropriate security controls for sensitive data",
+      "fix": "Label data as public, internal, confidential, or restricted"
+    },
+    {
+      "type": "check",
+      "title": "Verify backup encryption",
+      "why": "Unencrypted backups are a major data breach risk if storage is compromised",
+      "fix": "Enable encryption at rest and in transit for all backup solutions"
+    },
+    {
+      "type": "check",
+      "title": "Review third-party vendor access",
+      "why": "Excessive vendor permissions increase attack surface and compliance risk",
+      "fix": "Audit vendor access quarterly and apply principle of least privilege"
+    }
+  ]
+}
