@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-21",
+  "headline": "Strengthen Your Security Posture Today",
+  "digest_items": [
+    {
+      "type": "pattern",
+      "title": "Implement session timeout",
+      "why": "Long-lived sessions increase risk of session hijacking",
+      "fix": "Set session timeout to 15-30 minutes for sensitive applications"
+    },
+    {
+      "type": "check",
+      "title": "Verify SSL certificate validity",
+      "why": "Expired certificates break HTTPS and expose users to MITM attacks",
+      "fix": "Set up automated renewal with Let's Encrypt or monitor expiry dates"
+    },
+    {
+      "type": "pattern",
+      "title": "Implement zero trust architecture",
+      "why": "Zero trust assumes breach and verifies every access request",
+      "fix": "Require authentication for all resources regardless of network location"
+    },
+    {
+      "type": "pattern",
+      "title": "Rotate API keys quarterly",
+      "why": "Regular rotation limits the window of exposure if keys are compromised",
+      "fix": "Set calendar reminders and use secret management tools like HashiCorp Vault"
+    },
+    {
+      "type": "tip",
+      "title": "Use environment variables for secrets",
+      "why": "Hardcoded secrets in code are exposed in version control",
+      "fix": "Store secrets in .env files (gitignored) or secret management services"
+    },
+    {
+      "type": "check",
+      "title": "Scan for exposed .git directories",
+      "why": "Exposed .git folders can leak source code and sensitive configuration",
+      "fix": "Block access in web server config or use .htaccess: 'RedirectMatch 404 /\\.git'"
+    }
+  ]
+}
